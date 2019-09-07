@@ -12,17 +12,17 @@
     <div>
         <div class="shadow p-3 mb-5 bg-white rounded">
             <input type="search" placeholder="Search " [formControl]="control" [matAutocomplete]="auto"
-                [(ngModel)]='searchValue'>
+            >
             <mat-autocomplete #auto="matAutocomplete">
 
                 <div *ngIf="filteredCities">
                     <mat-option *ngFor="let city of filteredCities | async" [value]="city">
-                        <div><b>{{city}}</b></div>
+                        <div id="searchValue" name='searchValue'><b>{{city}}</b></div>
                     </mat-option>
                 </div>
             </mat-autocomplete>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-                (click)="_service.getLocationKey(searchValue) ">Search</button>
+                (click)="_service.getLocationKey(searchValue.value) ">Search</button>
         </div>
     </div>
     <div>
